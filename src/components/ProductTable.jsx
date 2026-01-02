@@ -2,8 +2,8 @@ export default function ProductTable({ products, onEdit, onDelete }) {
   return (
     <div className="rounded-2xl border border-slate-200/80 bg-white shadow-xl overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[720px] text-left text-sm">
-          <thead className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-700 text-white">
+        <table className="w-full min-w-180 text-left text-sm">
+          <thead className="bg-linear-to-r from-slate-900 via-slate-800 to-emerald-700 text-white">
             <tr>
               <th className="px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold tracking-wide">Name</th>
               <th className="px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold tracking-wide">Price</th>
