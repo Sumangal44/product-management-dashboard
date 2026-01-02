@@ -1,1 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+:root {
+	color-scheme: light;
+}
+
+* {
+	font-family: "Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+	background: radial-gradient(1400px circle at 10% 20%, rgba(45, 212, 191, 0.18), transparent 45%),
+		radial-gradient(1200px circle at 85% 10%, rgba(251, 191, 36, 0.16), transparent 50%),
+		radial-gradient(800px circle at 50% 80%, rgba(14, 165, 233, 0.12), transparent 45%),
+		#f8fafc;
+	color: #0f172a;
+	min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+.ambient-grid {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+	background-size: 28px 28px;
+	mask-image: radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0.28), transparent 60%);
+}
+
+.glass-card {
+	background: rgba(255, 255, 255, 0.78);
+	border: 1px solid rgba(148, 163, 184, 0.28);
+	box-shadow: 0 25px 80px rgba(15, 23, 42, 0.08);
+	backdrop-filter: blur(16px);
+}
+
+.pill {
+	border: 1px solid rgba(148, 163, 184, 0.45);
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.scrollbar-hide {
+	scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}

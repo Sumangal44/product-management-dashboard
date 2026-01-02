@@ -1,26 +1,25 @@
 export default function ViewToggle({ view, setView }) {
+  const options = [
+    { id: "table", label: "Table", icon: "📋" },
+    { id: "card", label: "Cards", icon: "🗂️" },
+  ];
+
   return (
-    <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
-      <button
-        onClick={() => setView("table")}
-        className={`px-4 py-2 rounded-md font-semibold transition-all ${
-          view === "table"
-            ? "bg-white text-blue-600 shadow-md"
-            : "text-gray-600 hover:text-gray-900"
-        }`}
-      >
-        📋 Table
-      </button>
-      <button
-        onClick={() => setView("card")}
-        className={`px-4 py-2 rounded-md font-semibold transition-all ${
-          view === "card"
-            ? "bg-white text-blue-600 shadow-md"
-            : "text-gray-600 hover:text-gray-900"
-        }`}
-      >
-        🎴 Cards
-      </button>
+    <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-1 py-1 shadow-sm">
+      {options.map((option) => (
+        <button
+          key={option.id}
+          onClick={() => setView(option.id)}
+          className={`flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition ${
+            view === option.id
+              ? "bg-slate-900 text-white shadow-md"
+              : "text-slate-700 hover:bg-slate-100"
+          }`}
+        >
+          <span>{option.icon}</span>
+          <span>{option.label}</span>
+        </button>
+      ))}
     </div>
   );
 }
