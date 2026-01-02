@@ -1,16 +1,157 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛒 Product Management Dashboard (Frontend Assignment)
 
-Currently, two official plugins are available:
+A responsive **Product Management Dashboard** built using **React and Tailwind CSS** as part of the frontend interview assignment for **Grey Scientific Labs**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application allows users to **view, search, add, edit, and paginate products** with support for both **Table (List) View** and **Card (Grid) View**, all managed completely in **client-side memory** (no backend).
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔗 Live Demo
 
-## Expanding the ESLint configuration
+👉 **Deployed Link:**
+*(Add your Vercel / Netlify URL here)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📌 Features
+
+### ✅ Product List Display
+
+* Displays products in:
+
+  * **Table View (List)**
+  * **Card View (Grid)**
+* Toggle option to switch between views seamlessly
+
+### 🔍 Search with Debounce
+
+* Real-time product name search
+* **500ms debounce** to optimize performance and reduce unnecessary re-renders
+
+### ➕ Add & ✏️ Edit Product
+
+* Reusable form for **Add** and **Edit**
+* Fields:
+
+  * Name (required)
+  * Price (required, number)
+  * Category (required)
+  * Stock (number)
+  * Description (optional)
+* Basic form validation with user-friendly error messages
+
+### 📄 Pagination
+
+* Client-side pagination
+* Automatically updates with search results
+* Clean and minimal navigation controls
+
+### 🎨 UI & Responsiveness
+
+* Built using **Tailwind CSS**
+* Fully responsive (mobile, tablet, desktop)
+* Clean and user-friendly design
+
+---
+
+## 🧠 Technical Implementation
+
+* **React (Vite)** for fast development
+* **Tailwind CSS** for styling and responsiveness
+* **useState, useMemo, useEffect** for state management
+* **Custom `useDebounce` hook** for optimized search
+* All product data is stored **in memory only**, as required
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│── components/
+│   ├── ProductTable.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductForm.jsx
+│   ├── Pagination.jsx
+│   ├── SearchBar.jsx
+│   ├── ViewToggle.jsx
+│
+│── hooks/
+│   └── useDebounce.js
+│
+│── data/
+│   └── initialProducts.js
+│
+│── App.jsx
+│── main.jsx
+│── index.css
+```
+
+---
+
+## 🚀 Getting Started Locally
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/product-management-dashboard.git
+cd product-management-dashboard
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Start Development Server
+
+```bash
+npm run dev
+```
+
+Open your browser at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🧪 Assignment Requirements Mapping
+
+| Requirement                  | Status |
+| ---------------------------- | ------ |
+| Product list display         | ✅ Done |
+| Table & Card view            | ✅ Done |
+| Toggle view                  | ✅ Done |
+| Search with debounce (500ms) | ✅ Done |
+| Add/Edit product             | ✅ Done |
+| Form validation              | ✅ Done |
+| In-memory data handling      | ✅ Done |
+| Pagination                   | ✅ Done |
+| Responsive UI                | ✅ Done |
+
+---
+
+
+## 📧 Submission Details
+
+* **Assignment Type:** Frontend Assessment
+* **Company:** Grey Scientific Labs
+* **Submission Email:** [hr@greyscientificlabs.com](mailto:hr@greyscientificlabs.com)
+* **Deadline:** 05 January 2026
+
+---
+
+## 👤 Author
+
+**Name:** Sumangal Karan
+**Role:** BCA Student / Frontend Developer
+**Skills:** React, JavaScript, Tailwind CSS, HTML, CSS
+
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
