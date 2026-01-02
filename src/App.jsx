@@ -21,7 +21,8 @@ export default function App() {
 
   const filtered = useMemo(() =>
     products.filter(p =>
-      p.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+      p.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+      p.category.toLowerCase().includes(debouncedSearch.toLowerCase())
     ), [products, debouncedSearch]
   );
 
@@ -40,20 +41,67 @@ export default function App() {
     setEditing(null);
   };
 
+  const deleteProduct = (id) => {
+    if (confirm("Delete this product?")) {
+      setProducts(products.filter((p) => p.id !== id));
+      setEditing(null);
+    }
+  };
+
   return (
-    <div className="p-4 max-w-5xl mx-auto">
-      <ProductForm onSave={saveProduct} editingProduct={editing} />
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-purple-50 to-pink-50">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            🛍️ Product Dashboard
+          </h1>
+          <p className="text-gray-600 text-lg">Manage your inventory with ease</p>
+        </header>
 
-      <div className="flex flex-col md:flex-row justify-between gap-3">
-        <SearchBar value={search} onChange={setSearch} />
-        <ViewToggle view={view} setView={setView} />
+        <ProductForm onSave={saveProduct} editingProduct={editing} />
+
+        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-6">
+            <div className="w-full md:w-96">
+              <SearchBar search={search} setSearch={setSearch} />
+            </div>
+            <ViewToggle view={view} setView={setView} />
+          </div>
+
+          <div className="mb-4">
+            <p className="text-gray-600 font-semibold">
+              📊 Showing {paginated.length} of {filtered.length} products
+            </p>
+          </div>
+
+          {view === "table" ? (
+            <ProductTable
+              products={paginated}
+              onEdit={setEditing}
+              onDelete={deleteProduct}
+            />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginated.map((p) => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  onEdit={setEditing}
+                  onDelete={deleteProduct}
+                />
+              ))}
+            </div>
+          )}
+
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={page}
+              totalPages={totalPages}
+              onPageChange={setPage}
+            />
+          )}
+        </div>
       </div>
-
-      {view === "table"
-        ? <ProductTable products={paginated} onEdit={setEditing} />
-        : <ProductCard products={paginated} onEdit={setEditing} />}
-
-      <Pagination page={page} total={totalPages} setPage={setPage} />
     </div>
   );
 }
