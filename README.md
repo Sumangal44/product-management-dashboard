@@ -10,7 +10,7 @@ This application allows users to **view, search, add, edit, and paginate product
 ## 🔗 Live Demo
 
 👉 **Deployed Link:**
-*(Add your Vercel / Netlify URL here)*
+[*(Add your Vercel / Netlify URL here)*](https://product-management-dashboardx.netlify.app/)
 
 ---
 
