@@ -155,3 +155,5 @@ http://localhost:5173
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b37bb163-b1b6-4193-ab43-395f77f854c7/deploy-status)](https://app.netlify.com/projects/product-management-dashboardx/deploys)
+
